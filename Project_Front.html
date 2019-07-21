@@ -1,0 +1,240 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<link href="https://fonts.googleapis.com/css?family=Vollkorn:600i&display=swap" rel="stylesheet">
+<style>
+body{
+	background-image: url("pic.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+/*
+img{
+	width: 8% ;
+}
+*/
+
+#heading{
+		color: white;
+		opacity: 0;
+		text-align: center;
+		font-size: 40px;
+
+	}
+
+@keyframes yourAnimation{
+    0%{
+    	color: yellow;
+		text-align: center;
+		font-size: 30px;
+		text-shadow: 1px 1px powderblue;
+        opacity: 0;
+        }
+    100%{
+    	color:  #F835DB;
+		text-align: center;
+		font-size: 35px;
+		text-shadow: 3px 3px snow;
+        transform: rotate(xx);
+        opacity: 1;
+        }
+}
+@keyframes body{
+	0%{
+		opacity: 0;
+	}
+	100%{
+		opacity: 1;
+	}
+}
+
+body{
+    animation: body 2s forwards 0s linear;
+}
+#heading{
+	animation: yourAnimation 2s forwards 0.3s linear;
+}
+.choices{
+	font-size: 30px;
+	text-align: center;
+	/*color: lime;*/
+	
+	/*background-color: yellow;
+	border-style: solid;
+	border-color: aqua;*/
+
+	/*
+	margin-left: 320px;
+	margin-right: 320px;
+	border-radius: 20px;
+	*/
+
+	/*border-width: 20px 10px 40px 20px;
+	border: 5px solid blue;*/
+	text-decoration: none;
+	/*
+	box-sizing: border-box;
+	margin-left: 100px;
+  width: 300px;
+  height: 100px;
+  padding: 300px;  
+  border: 10px solid blue;
+  */
+}
+.choice{
+		padding: 5px;
+	/*
+	padding: 20px;
+	background-color: gold;
+	border-style: solid;
+	border-radius: 20px;
+	border-color: red;
+	*/
+	/*border-width: 5px;*/
+}
+.choice:hover{
+	/*
+	background-color: yellow;
+	font-size: 35px;
+	border-color: green;*/
+}
+.choice a{
+	color: darkred;
+	text-align: center;
+	text-decoration: none;
+}
+/*
+@keyframes button{
+    0%{
+    	width: 350px;
+    	opacity: 0;
+	height: 75px;
+	margin-left: 320px;
+	margin-right: 320px;
+	background-color: yellow;
+	border-style: solid;
+
+	border-radius: 100px;
+	border-color: red;
+	cursor: pointer;
+        }
+    100%{
+    	width: 350px;
+    	opacity: 1;
+	height: 75px;
+	margin-left: 320px;
+	margin-right: 320px;
+	text-align: center;
+	background-color: gold;
+	border-style: solid;
+	border-radius: 100px;
+	border-color: red;
+	cursor: pointer;
+        }
+}
+*/
+@keyframes hover{
+	0%{
+		width: 350px;
+	height: 75px;
+	margin-left: 320px;
+	margin-right: 320px;
+	background-color: #00FFFF;
+	border-style: solid;
+	border-radius: 100px;
+	border-color: red;
+	cursor: pointer;
+	}
+	100%{
+    	width: 350px;
+    	opacity: 1;
+	height: 75px;
+	margin-left: 320px;
+	margin-right: 320px;
+	text-align: center;
+	background-color: #00FF00;
+	border-style: solid;
+	border-radius: 100px;
+	border-color: red;
+	cursor: pointer;
+	}
+}
+
+/*
+#choice1{
+    animation: button 3s forwards 1s linear;
+    color:red;*/
+    /*background-color: grey;*/
+/*}*/
+/*
+#choice1:hover{
+	animation: hover 3s infinite 0s ease;
+}
+*/
+button{
+	color:darkred;
+	font-size: 24px;
+	font-weight: 700;
+	/*font-family: sans-serif;*/
+	font-family: 'Vollkorn', serif;
+	/*padding: 20px;*/
+	width: 400px;
+	height: 75px;
+	opacity: 1;
+	margin-left: 320px;
+	margin-right: 320px;
+	/*
+	border-color: red;
+	background-color: yellow;
+	*/
+	background-color:cyan;
+	border-color: navy;
+	border-style: solid;
+	border-radius: 100px;
+	/*border-color: red;*/
+	border-width: 3px;
+	cursor: pointer;
+}
+button:hover{
+	/*color: gold;
+	font-size: 26px;
+	background-color:green;
+	border-color: gold;*/
+	color: red;
+	font-size: 28px;
+	background-color: lime;
+
+
+
+
+
+
+}
+</style>
+
+
+<title>PROJECT</title>
+<body>
+<div id = "heading">
+	<h1> Data Structure <!--<img src = "logo.jpg" align = "right">--> </h1>
+</div>
+<div class = "choices">
+	<div class = "choice" >
+		<a href="array.html"><button id = "choice1">Array</button></a>
+	</div>
+	<br>
+	<div class = "choice" id = "choice2">
+		<a href = "linked_list.html"><button id = "choice2">Linked List</button></a>
+	</div>
+	<br>
+	<div class = "choice" id = "choice3">
+		<a href = "c.html"><button id ="choice3">Stack</button></a>
+	</div>
+	<br>
+	<div class = "choice" id = "choice4">
+		<a href = "d.html"><button id = "choice3">Queue</button></a>
+	</div>
+</div>
+</body>
+</head>
+</html>
