@@ -1,0 +1,361 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Vollkorn:600i&display=swap" rel="stylesheet">
+<!--
+ <link rel="stylesheet"  href="expcss.css">
+-->
+<style>
+body{
+  background-image:url("pic14.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+
+}
+
+hr.new1 {
+  border-top: 2px solid red;
+}
+
+h1{
+    color:blue;
+    text-shadow:4px 4px 2px aqua;
+    font-family: 'Vollkorn', serif;
+    font-size:55px;
+    text-align: center;
+    /*font-style: italic;*/
+}
+
+#final{
+    color:blue;
+    text-shadow:3px 3px 2px green;
+    font-size:50px;
+    text-align: center;
+    font-style: italic;
+
+}
+h2{
+ color:darkGreen;
+    text-shadow:3px 3px 2px lime;
+    font-size:30px;
+    margin-left: 580px;
+    font-style: italic;
+}
+.update{
+      height:23px;
+      width:30px;
+      
+}
+.button {
+color:#fff;
+ /* position:absolute;*/
+  text-align: center;
+ /* transform:translate(-50%,-50%);*/
+  width:150px;
+  height:50px;
+left:300px;
+  margin: 24px 4px;
+  cursor: pointer;
+font-size: 16px;
+border-radius: 30px;
+background:linear-gradient(90deg,#03a9f4,#f441a5,#ffeb3b,#03a9f4);
+background-size:400%;
+animation : animate 8s linear infinite;
+}
+.button:hover{
+    /* animation : animate 8s linear infinite;*/
+}
+@keyframes animate
+{
+    0%
+    {
+        background-position : 0% ;
+    }
+    100%
+    {
+        background-position : 400% ;
+    }
+}
+/*
+#heading{
+    color:red;
+    text-shadow:2px 2px 1px pink;
+    font-size :40px;
+    padding: 0px 100px;
+}
+*/
+#question{
+    color:brown;
+    text-shadow:2.5px 2.5px gold;
+    font-size :45px;
+    padding: 0px 100px;
+    padding-top: 0px;
+}
+#gif{
+width:16%;
+float:right;
+}
+#finalimg{
+  padding: 0px 400px;
+}
+
+
+.dots{
+margin-left: 250px;
+}
+
+.dot{
+    height: 40px;
+cursor:pointer;
+  width: 40px;
+font-size:26px;
+color: black;
+
+  background-color: red;
+  border-radius: 50%;
+  border:red solid 2px;
+ 
+  display: inline-block;
+}
+
+.dot:hover{
+  height: 40px;
+  width: 40px;
+  border: yellow solid 2px;
+}
+
+
+#test{
+    color : dark-Green;
+    text-shadow:2px 2px lime;
+    font-size : 35px;
+    padding:1px 100px;
+}
+#test:hover{
+    text-shadow:2px 2px aqua;
+}
+
+</style>
+ <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>
+Stack
+</title>
+</head>
+
+<body>
+ 
+<h1 > STACK </h1><img src ="yeah.gif" id = "gif"></img>
+
+<!--<h5 align="right"> MM : 10 &nbsp&nbsp </h5>
+-->
+<hr class = "new1">
+
+
+<h2 id = "check"> Question Status </h2>
+<!--
+<p id = "heading" > </p>
+-->
+
+
+<div class = "dots" style="text-align:center">
+  
+ 
+  
+  <span class="dot" onclick ="dotclick(0)">1</span>
+  <span class="dot" onclick ="dotclick(1)">2</span>
+  <span class="dot" onclick ="dotclick(2)">3</span>
+  <span class="dot" onclick ="dotclick(3)">4</span>
+  <span class="dot" onclick ="dotclick(4)">5</span>
+  <span class="dot" onclick ="dotclick(5)">6</span>
+  <span class="dot" onclick ="dotclick(6)">7</span>
+  <span class="dot" onclick ="dotclick(7)">8</span> 
+  <span class="dot" onclick ="dotclick(8)">9</span>
+  <span class="dot" onclick ="dotclick(9)">10</span>
+  
+</div>
+<p id = "question"></p>
+<p id = "test" > </p>
+<p id = "answer"></p>
+<p id="final"></p>
+<img  id="finalimg" > </img>
+
+
+
+
+
+
+
+<script>
+var a,b,c,d,test,num, rand,m=0,temp=1,end=0,value,e,f=0,x=0,y,question,z=0,count=0;
+var dots =  document.getElementsByClassName("dot");
+var questions = [
+   ["QUESTION : Which one of the following is an application of Stack Data Structure?"," Managing function calls"," The stock span problem"," Arithmetic expression evaluation","  All of the above","D"],
+["QUESTION : Which of the following is true about linked list implementation of stack? "," In push operation, if new nodes are inserted at the beginning of linked list, then in pop operation, nodes must be removed from end"," In push operation, if new nodes are inserted at the end, then in pop operation, nodes must be removed from the beginning."," Both of the above"," None of the above","D"],
+["QUESTION : To evaluate an expression without any embedded function calls:"," One stack is enough"," Two stacks are needed"," As many stacks as the height of the expression tree are needed"," A Turing machine is needed in the general case ","A"],
+["QUESTION : The result evaluating the postfix expression 10 5 + 60 6 / * 8 – is "," 284"," 213"," 142"," 71","C"],
+["QUESTION : Which of the following permutation can be obtained in the same order using a stack assuming that input is the sequence 5, 6, 7, 8, 9 in that order? "," 7, 8, 9, 5, 6"," 5, 9, 6, 7, 8"," 7, 8, 9, 6, 5"," 9, 8, 7, 5, 6","C"],
+["QUESTION : The minimum number of stacks needed to implement a queue is: "," 1"," 2"," 3"," 4","B"],
+["QUESTION : The best data structure to check whether an arithmetic expression has balanced parenthesis is a "," Stack"," Queue"," List"," Array","A"],
+["QUESTION : If the sequence of operations - push (1), push (2), pop, push (1), push (2), pop, pop, pop, push (2), pop are performed on a stack, the sequence of popped out values "," 2 2 1 1 2"," 2 2 1 2 2"," 2 1 2 2 1"," 2 1 2 2 2","A"],
+["QUESTION : Which of the following is not an inherent application of stack? "," Implementation of recursion"," Evaluation of a postfix expression"," Job scheduling"," Reverse a string","C"],
+["QUESTION : The five items: A, B, C, D, and E are pushed in a stack, one after other starting from A. The stack is popped four items and each element is inserted in a queue. The two elements are deleted from the queue and pushed back on the stack. Now one item is popped from the stack. The popped item is "," A"," B"," C"," D","D"]
+];
+
+/*
+x = Math.floor((Math.random() * 10) + 1);
+rand = x;*/
+x = 0;
+rand = x;
+
+
+var ar = [0,0,0,0,0,0,0,0,0,0];
+function _(k)
+{
+    return document.getElementById("k");
+}
+var gifs = [
+
+" https://media1.giphy.com/media/ful6IbWkBsVhe/giphy.gif",
+
+
+"https://media1.giphy.com/media/xT9IgrvjO3nzVGLPJ6/giphy.gif?cid=790b76115cc31e78467a6a5745a5fc51&rid=giphy.gif ",
+
+
+"https://media1.giphy.com/media/l1J9AsyIj26GQvrRS/giphy.gif?cid=790b76115cc31bbe6b6143332e8753e6&rid=giphy.gif",
+
+"https://media0.giphy.com/media/3o7aD6bqhnw7Zn8jXq/giphy.gif?cid=790b76115cc31bd6784e4d6963f05b78&rid=giphy.gif ",
+
+" https://media0.giphy.com/media/3o7aCWzB0gmPgR6EHm/giphy.gif?cid=790b76115cc31c0a4d68575541eeed28&rid=giphy.gif",
+" https://media0.giphy.com/media/3o7aDdTUMjA0Dna9DG/giphy.gif?cid=790b76115cc31c385766716f5531929b&rid=giphy.gif ",
+
+"  https://media3.giphy.com/media/3o7aCYNWwi1vOC4nTi/giphy.gif?cid=790b76115cc31c1250415454497971f1&rid=giphy.gif",
+
+" https://media0.giphy.com/media/xT9IgxiUfXHycuUkRW/giphy.gif?cid=790b76115cc31c81653675656bfae0f4&rid=giphy.gif",
+
+" https://media0.giphy.com/media/3o7aD2yQmy5bn4AitO/giphy.gif?cid=790b76115cc31ca166422e4c2edf8290&rid=giphy.gif",
+
+"https://media0.giphy.com/media/E6LPrrzKOJwhG/giphy.gif ",
+
+" http://gif-finder.com/wp-content/uploads/2015/12/Jeremy-Renner-Thumbs-Up-Awesome.gif"
+];
+function getquestion()
+{
+
+if(x>9)
+    {
+        x = x -10;
+    }
+else
+x=x;
+if(count>=questions.length)
+//if(count == 10)
+{
+    for(y=0;y<10;y++)
+        {
+                if(ar[y]==1)
+                z++;
+        }
+//document.getElementsByTagName("h1")[0].innerHTML=" ";
+document.getElementById("check").innerHTML=" ";
+//document.getElementsByTagName("span")[0].value=" ";
+//document.getElementsByClassName("dot")[1].innerHTML=" h";
+document.getElementById("final").innerHTML="You got " + z + " correct";
+document.getElementById("finalimg").src = gifs[z];
+//document.getElementById("heading").innerHTML=" ";
+document.getElementById("question").innerHTML=" ";
+document.getElementById("test").innerHTML = "";
+}
+else
+{
+    
+    test = _("test");
+    question=questions[x][0];
+    a = questions[x][1];
+    b = questions[x][2];
+    c = questions[x][3];
+    d = questions[x][4];
+//document.getElementById("heading").innerHTML="Question "+(count+1)+" of "+questions.length ;
+document.getElementById("question").innerHTML= question ;
+document.getElementById("test").innerHTML= " ";
+
+document.getElementById("test").innerHTML+="<input type ='radio'  id = 'q1' class = 'update' name ='choices' value ='A' > "+a+ " <br>";
+        document.getElementById("test").innerHTML+= " <input type ='radio'class = 'update' name ='choices' value ='B'  > "+b+" <br> ";
+ 
+     document.getElementById("test").innerHTML+=" <input type='radio'class = 'update' name ='choices' value='C' > "+c+"<br> ";
+      document.getElementById("test").innerHTML+=" <input type='radio'class = 'update' name ='choices' value='D'  > "+d+"<br> " ;
+  if(count!=0) document.getElementById("test").innerHTML+= " <button class='button' onclick ='prev()'> prev </button>";
+     document.getElementById("test").innerHTML+= " <button  class='button' onclick ='check(1)'> Submit </button>";
+   document.getElementById("test").innerHTML+= " <button  class='button' onclick ='check(0)'> Next </button>";
+ 
+    
+    }
+}
+
+function dotclick(value)
+{
+//temp=0;
+m=value;
+count = value;
+dots[value].style.backgroundColor="aqua";
+    if(rand + value > 9)
+    x = value - rand;
+    else
+    x = value + rand ;
+    getquestion();
+    
+    
+}
+function check(end)
+{
+   dots[m].style.backgroundColor="yellow";
+ d=document.getElementsByName("choices");
+    for(var i=0;i<d.length;i++)
+    {
+        if(d[i].checked)
+        {
+        e=d[i].value;
+       dots[m].style.backgroundColor="lime";
+        
+        
+        }
+    }
+    if(e==questions[x][5])
+    {
+        f++;
+        
+        ar[x]=1;
+    }
+    else
+    {
+    ar[x]=0;
+    }
+    count ++;
+    //temp=1;
+    x++;
+    m++;
+    if(end==1)
+    count=10;
+    getquestion();
+}
+function prev()
+{
+
+
+  /*dots[count].style.backgroundColor="white";*/
+  count--;
+  x--;
+  m--;
+  ar[x]=0;
+  dots[count].style.backgroundColor="red";
+
+    getquestion();
+}
+window.addEventListener("load",getquestion,false);
+</script>
+
+
+</body>
+
+
+</html
