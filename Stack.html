@@ -102,6 +102,7 @@ float:right;
 
 .dots{
 margin-left: 250px;
+/*align-content: center;*/
 }
 
 .dot{
@@ -123,7 +124,9 @@ color: black;
   width: 40px;
   border: yellow solid 2px;
 }
-
+#piechart{
+  z-index: -1;
+}
 
 #test{
     color : dark-Green;
@@ -156,8 +159,9 @@ Stack
 <!--
 <p id = "heading" > </p>
 -->
+<!--    +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
 
-
+<!--    +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
 <div class = "dots" style="text-align:center">
   
  
@@ -180,13 +184,49 @@ Stack
 <p id="final"></p>
 <img  id="finalimg" > </img>
 
+<div id="piechart" align = "center">
+</div>
+<!--<script>-->
+<!----------------------------------------------------------------------------------------------->
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+<script type="text/javascript">
+// Load google charts
+
+
+// Draw the chart and set the chart values
+
+
+//--------------------------------------------------------------------------------------------->
 
 
 
 
 
 
-<script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 var a,b,c,d,test,num, rand,m=0,temp=1,end=0,value,e,f=0,x=0,y,question,z=0,count=0;
 var dots =  document.getElementsByClassName("dot");
 var questions = [
@@ -205,8 +245,10 @@ var questions = [
 /*
 x = Math.floor((Math.random() * 10) + 1);
 rand = x;*/
+yo = 0
 x = 0;
 rand = x;
+non_attempted = 10;
 
 
 var ar = [0,0,0,0,0,0,0,0,0,0];
@@ -250,20 +292,46 @@ else
 x=x;
 if(count>=questions.length)
 //if(count == 10)
+
 {
+  
     for(y=0;y<10;y++)
         {
                 if(ar[y]==1)
                 z++;
         }
+
+
+
+
+
+
+
 //document.getElementsByTagName("h1")[0].innerHTML=" ";
 document.getElementById("check").innerHTML=" ";
 //document.getElementsByTagName("span")[0].value=" ";
-//document.getElementsByClassName("dot")[1].innerHTML=" h";
+document.getElementsByClassName("dot")[0].innerHTML="hello ";
 document.getElementById("final").innerHTML="You got " + z + " correct";
 document.getElementById("finalimg").src = gifs[z];
 //document.getElementById("heading").innerHTML=" ";
 document.getElementById("question").innerHTML=" ";
+google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(drawChart);
+function drawChart() {
+  var data = google.visualization.arrayToDataTable([
+  ['Task', 'Hours per Day'],
+  ['Correct',z],
+  ['Wrong',10-z-non_attempted],
+  ['Non attempted',non_attempted]
+]);
+
+  // Optional; add a title and set the width and height of the chart
+  var options = {'title':'Evaluation', 'width':550, 'height':300};
+
+  // Display the chart inside the <div> element with id="piechart
+  var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+  chart.draw(data, options);
+}
 document.getElementById("test").innerHTML = "";
 }
 else
@@ -316,7 +384,7 @@ function check(end)
         {
         e=d[i].value;
        dots[m].style.backgroundColor="lime";
-        
+        non_attempted--;
         
         }
     }
