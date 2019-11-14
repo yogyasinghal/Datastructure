@@ -1,0 +1,375 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Vollkorn:600i&display=swap" rel="stylesheet">
+<!--
+ <link rel="stylesheet"  href="expcss.css">
+-->
+<style>
+body{
+  background-image:url("pic14.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+
+}
+
+hr.new1 {
+  border-top: 2px solid red;
+}
+
+h1{
+    color:blue;
+    text-shadow:4px 4px 2px aqua;
+    font-family: 'Vollkorn', serif;
+    font-size:55px;
+    text-align: center;
+    /*font-style: italic;*/
+}
+
+#final{
+    color:blue;
+    text-shadow:3px 3px 2px green;
+    font-size:50px;
+    text-align: center;
+    font-style: italic;
+
+}
+h2{
+ color:darkGreen;
+    text-shadow:3px 3px 2px lime;
+    font-size:30px;
+    margin-left: 580px;
+    font-style: italic;
+}
+.update{
+      height:23px;
+      width:30px;
+      
+}
+.button {
+color:#fff;
+ /* position:absolute;*/
+  text-align: center;
+ /* transform:translate(-50%,-50%);*/
+  width:150px;
+  height:50px;
+left:300px;
+  margin: 24px 4px;
+  cursor: pointer;
+font-size: 16px;
+border-radius: 30px;
+background:linear-gradient(90deg,#03a9f4,#f441a5,#ffeb3b,#03a9f4);
+background-size:400%;
+animation : animate 8s linear infinite;
+}
+.button:hover{
+    /* animation : animate 8s linear infinite;*/
+}
+@keyframes animate
+{
+    0%
+    {
+        background-position : 0% ;
+    }
+    100%
+    {
+        background-position : 400% ;
+    }
+}
+/*
+#heading{
+    color:red;
+    text-shadow:2px 2px 1px pink;
+    font-size :40px;
+    padding: 0px 100px;
+}
+*/
+#question{
+    color:brown;
+    text-shadow:2.5px 2.5px gold;
+    font-size :45px;
+    padding: 0px 100px;
+    padding-top: 0px;
+}
+#gif{
+width:16%;
+float:right;
+}
+#finalimg{
+  padding: 0px 400px;
+}
+
+
+.dots{
+margin-left: 250px;
+}
+
+.dot{
+    height: 40px;
+cursor:pointer;
+  width: 40px;
+font-size:26px;
+color: black;
+
+  background-color: red;
+  border-radius: 50%;
+  border:red solid 2px;
+ 
+  display: inline-block;
+}
+
+.dot:hover{
+  height: 40px;
+  width: 40px;
+  border: yellow solid 2px;
+}
+
+
+#test{
+    color : dark-Green;
+    text-shadow:2px 2px lime;
+    font-size : 35px;
+    padding:1px 100px;
+}
+#test:hover{
+    text-shadow:2px 2px aqua;
+}
+
+</style>
+ <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>
+Queue
+</title>
+</head>
+
+<body>
+ 
+<h1 > QUEUE </h1><img src ="yeah.gif" id = "gif"></img>
+
+<!--<h5 align="right"> MM : 10 &nbsp&nbsp </h5>
+-->
+<hr class = "new1">
+
+
+<h2 id = "check"> Question Status </h2>
+<!--
+<p id = "heading" > </p>
+-->
+
+
+<div class = "dots" style="text-align:center">
+  
+ 
+  
+  <span class="dot" onclick ="dotclick(0)">1</span>
+  <span class="dot" onclick ="dotclick(1)">2</span>
+  <span class="dot" onclick ="dotclick(2)">3</span>
+  <span class="dot" onclick ="dotclick(3)">4</span>
+  <span class="dot" onclick ="dotclick(4)">5</span>
+  <span class="dot" onclick ="dotclick(5)">6</span>
+  <span class="dot" onclick ="dotclick(6)">7</span>
+  <span class="dot" onclick ="dotclick(7)">8</span> 
+  <span class="dot" onclick ="dotclick(8)">9</span>
+  <span class="dot" onclick ="dotclick(9)">10</span>
+  
+</div>
+<p id = "question"></p>
+<p id = "test" > </p>
+<p id = "answer"></p>
+<p id="final"></p>
+<img  id="finalimg" > </img>
+
+
+
+
+
+
+
+<script>
+var a,b,c,d,test,num, rand,m=0,temp=1,end=0,value,e,f=0,x=0,y,question,z=0,count=0;
+var dots =  document.getElementsByClassName("dot");
+var questions = [
+    
+
+["QUESTION : A priority queue can efficiently implemented using which of the following data structures? Assume that the number of insert and peek (operation to see the current highest priority item) and extraction (remove the highest priority item) operations are almost same.?", " array", "linked list", "heap data structures like heap", " none of the above", "C"],
+
+
+["QUESTION : Which of the following is true about linked list implementation of queue?", " array", "In push operation, if new nodes are inserted at the beginning of linked list, then in pop operation, nodes must be removed from end.", "In push operation, if new nodes are inserted at the end, then in pop operation, nodes must be removed from the beginning.", " Both of the above","None of the above", "C"],
+
+["QUESTION:Suppose a circular queue of capacity (n – 1) elements is implemented with an array of n elements. Assume that the insertion and deletion operation are carried out using REAR and FRONT as array index variables, respectively. Initially, REAR = FRONT = 0. The conditions to detect queue full and queue empty are?", "Full: (REAR+1) mod n == FRONT, empty: REAR == FRONT", "Full: (REAR+1) mod n == FRONT, empty: (FRONT+1) mod n == REAR", "Full: REAR == FRONT, empty: (REAR+1) mod n == FRONT", " Full: (FRONT+1) mod n == REAR, empty: REAR == FRONT", "A"],
+
+["QUESTION:A Priority-Queue is implemented as a Max-Heap. Initially, it has 5 elements. The level-order traversal of the heap is given below: 10, 8, 5, 3, 2 Two new elements ”1‘ and ”7‘ are inserted in the heap in that order. The level-order traversal of the heap after the insertion of the elements is:", "10, 8, 7, 5, 3, 2, 1", "10, 8, 7, 2, 3, 1, 5","10, 8, 7, 1, 2, 3, 5", " 10, 8, 7, 3, 2, 1, 5", "D"],
+
+
+
+["QUESTION:Suppose implementation supports an instruction REVERSE, which reverses the order of elements on the stack, in addition to the PUSH and POP instructions. Which one of the following statements is TRUE with respect to this modified stack?", "A queue cannot be implemented using this stack", "A queue can be implemented where ENQUEUE takes a single instruction and DEQUEUE takes a sequence of two instructions.", "A queue can be implemented where ENQUEUE takes a sequence of three instructions and DEQUEUE takes a single instruction.", " A queue can be implemented where both ENQUEUE and DEQUEUE take a single instruction each.", "C"],
+
+
+["QUESTION : How many stacks are needed to implement a queue. Consider the situation where no other data structure like arrays, linked list is available to you.","1","2","3","4","B"],
+
+["QUESTION : A queue is implemented using an array such that ENQUEUE and DEQUEUE operations are performed efficiently. Which one of the following statements is CORRECT (n refers to the number of items in the queue)?"," Both operations can be performed in O(1) time"," At most one operation can be performed in O(1) time but the worst case time for the other operation will be O(n) "," The worst case time complexity for both operations will be O(n)"," Worst case time complexity for both operations will be Ω(log n)","A"],
+
+["QUESTION : In which data structure element is inserted at one end called Rear and deleted at other end called Front?", " Stack", "Queue", "Binary Tree", " Array", "B"],
+
+["QUESTION : Insertion and Deletion operation in Queue is known as?", " push and pop", "enqueue and dequeue", "insert and delete", " none", "B"],
+["QUESTION : Which one of the following is an application of Queue Data Structure?","When a resource is shared among multiple consumers.","When data is transferred asynchronously (data not necessarily received at same rate as sent) between two processes","Load Balancing","All of the above","D"]
+];
+
+/*
+x = Math.floor((Math.random() * 10) + 1);
+rand = x;*/
+x = 0;
+rand = x;
+
+
+var ar = [0,0,0,0,0,0,0,0,0,0];
+function _(k)
+{
+    return document.getElementById("k");
+}
+var gifs = [
+
+" https://media1.giphy.com/media/ful6IbWkBsVhe/giphy.gif",
+
+
+"https://media1.giphy.com/media/xT9IgrvjO3nzVGLPJ6/giphy.gif?cid=790b76115cc31e78467a6a5745a5fc51&rid=giphy.gif ",
+
+
+"https://media1.giphy.com/media/l1J9AsyIj26GQvrRS/giphy.gif?cid=790b76115cc31bbe6b6143332e8753e6&rid=giphy.gif",
+
+"https://media0.giphy.com/media/3o7aD6bqhnw7Zn8jXq/giphy.gif?cid=790b76115cc31bd6784e4d6963f05b78&rid=giphy.gif ",
+
+" https://media0.giphy.com/media/3o7aCWzB0gmPgR6EHm/giphy.gif?cid=790b76115cc31c0a4d68575541eeed28&rid=giphy.gif",
+" https://media0.giphy.com/media/3o7aDdTUMjA0Dna9DG/giphy.gif?cid=790b76115cc31c385766716f5531929b&rid=giphy.gif ",
+
+"  https://media3.giphy.com/media/3o7aCYNWwi1vOC4nTi/giphy.gif?cid=790b76115cc31c1250415454497971f1&rid=giphy.gif",
+
+" https://media0.giphy.com/media/xT9IgxiUfXHycuUkRW/giphy.gif?cid=790b76115cc31c81653675656bfae0f4&rid=giphy.gif",
+
+" https://media0.giphy.com/media/3o7aD2yQmy5bn4AitO/giphy.gif?cid=790b76115cc31ca166422e4c2edf8290&rid=giphy.gif",
+
+"https://media0.giphy.com/media/E6LPrrzKOJwhG/giphy.gif ",
+
+" http://gif-finder.com/wp-content/uploads/2015/12/Jeremy-Renner-Thumbs-Up-Awesome.gif"
+];
+function getquestion()
+{
+
+if(x>9)
+    {
+        x = x -10;
+    }
+else
+x=x;
+if(count>=questions.length)
+//if(count == 10)
+{
+    for(y=0;y<10;y++)
+        {
+                if(ar[y]==1)
+                z++;
+        }
+//document.getElementsByTagName("h1")[0].innerHTML=" ";
+document.getElementById("check").innerHTML=" ";
+//document.getElementsByTagName("span")[0].value=" ";
+//document.getElementsByClassName("dot")[1].innerHTML=" h";
+document.getElementById("final").innerHTML="You got " + z + " correct";
+document.getElementById("finalimg").src = gifs[z];
+//document.getElementById("heading").innerHTML=" ";
+document.getElementById("question").innerHTML=" ";
+document.getElementById("test").innerHTML = "";
+}
+else
+{
+    
+    test = _("test");
+    question=questions[x][0];
+    a = questions[x][1];
+    b = questions[x][2];
+    c = questions[x][3];
+    d = questions[x][4];
+//document.getElementById("heading").innerHTML="Question "+(count+1)+" of "+questions.length ;
+document.getElementById("question").innerHTML= question ;
+document.getElementById("test").innerHTML= " ";
+
+document.getElementById("test").innerHTML+="<input type ='radio'  id = 'q1' class = 'update' name ='choices' value ='A' > "+a+ " <br>";
+        document.getElementById("test").innerHTML+= " <input type ='radio'class = 'update' name ='choices' value ='B'  > "+b+" <br> ";
+ 
+     document.getElementById("test").innerHTML+=" <input type='radio'class = 'update' name ='choices' value='C' > "+c+"<br> ";
+      document.getElementById("test").innerHTML+=" <input type='radio'class = 'update' name ='choices' value='D'  > "+d+"<br> " ;
+  if(count!=0) document.getElementById("test").innerHTML+= " <button class='button' onclick ='prev()'> prev </button>";
+     document.getElementById("test").innerHTML+= " <button  class='button' onclick ='check(1)'> Submit </button>";
+   document.getElementById("test").innerHTML+= " <button  class='button' onclick ='check(0)'> Next </button>";
+ 
+    
+    }
+}
+
+function dotclick(value)
+{
+//temp=0;
+m=value;
+count = value;
+dots[value].style.backgroundColor="aqua";
+    if(rand + value > 9)
+    x = value - rand;
+    else
+    x = value + rand ;
+    getquestion();
+    
+    
+}
+function check(end)
+{
+   dots[m].style.backgroundColor="yellow";
+ d=document.getElementsByName("choices");
+    for(var i=0;i<d.length;i++)
+    {
+        if(d[i].checked)
+        {
+        e=d[i].value;
+       dots[m].style.backgroundColor="lime";
+        
+        
+        }
+    }
+    if(e==questions[x][5])
+    {
+        f++;
+        
+        ar[x]=1;
+    }
+    else
+    {
+    ar[x]=0;
+    }
+    count ++;
+    //temp=1;
+    x++;
+    m++;
+    if(end==1)
+    count=10;
+    getquestion();
+}
+function prev()
+{
+
+
+  /*dots[count].style.backgroundColor="white";*/
+  count--;
+  x--;
+  m--;
+  ar[x]=0;
+  dots[count].style.backgroundColor="red";
+
+    getquestion();
+}
+window.addEventListener("load",getquestion,false);
+</script>
+
+
+</body>
+
+
+</html
